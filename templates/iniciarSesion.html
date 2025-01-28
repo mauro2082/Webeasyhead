@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="../static/css/iniciarSesion.css" />
+    <link rel="icon" href="../static/logo.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="/" class="nav-link">Inicio</a>
+      <a href="/portafolio" class="nav-link">Portafolio</a>
+      <a href="/#contact-us" class="nav-link">Contáctanos</a>
+    </nav>
+    <div class="body">
+      <header class="main-header">
+        <h1 class="title">Bienvenido</h1>
+      </header>
+
+      <main class="container">
+        <div class="form-container">
+          <h2>Iniciar Sesión</h2>
+          <form action="/login" method="post" class="form">
+            <div class="input-group">
+              <label for="username">Usuario</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Ingresa tu usuario"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="password">Contraseña</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Ingresa tu contraseña"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn">Iniciar Sesión</button>
+          </form>
+          <div class="register-link">
+            <a href="/registro" class="btn-secondary">Registrar Usuario</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

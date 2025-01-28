@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easy Health | Comentarios</title>
+    <link rel="stylesheet" href="../static/css/feedback.css" />
+    <script>
+        let timeout;
+
+        function resetTimeout() {
+            clearTimeout(timeout);
+            timeout = setTimeout(logout, 300000);  // 300000 ms = 5 minutos
+        }
+
+        function logout() {
+            window.location.href = "{{ url_for('logout') }}";
+        }
+
+        window.onload = resetTimeout;
+        window.onmousemove = resetTimeout;
+        window.onkeypress = resetTimeout;
+
+        window.onbeforeunload = function() {
+            fetch("{{ url_for('logout') }}", {method: "GET"});
+        };
+    </script>
+    
+
+</head>
+  <body>
+    <header>
+      <h1>Comentarios</h1>
+      <nav class="nav">
+        <a href="/" class="nav-link">Inicio</a>
+        <a href="{{ url_for('logout') }}" class="nav-link">Cerrar Sesión</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Comentarios Recibidos</h2>
+        <ul>
+          {% for feedback in feedbacks %}
+          <li>
+            <strong>Nombre:</strong> {{ feedback.name }}<br />
+            <strong>Email:</strong> {{ feedback.email }}<br />
+            <strong>Comentario:</strong> {{ feedback.text }}
+          </li>
+          {% else %}
+          <li>No hay comentarios aún.</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

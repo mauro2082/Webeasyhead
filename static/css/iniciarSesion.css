@@ -1,0 +1,215 @@
+/* Global Styles */
+
+body{
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    background-image: url("../fondos/fondo1.jpg");
+    background-size: cover; /* La imagen cubrirá todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+.body {
+    
+    margin: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la pantalla */
+    padding: 0 20px;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7); /* Fondo blanco con 80% de opacidad */
+    z-index: -1; /* Mantiene el pseudo-elemento detrás del contenido */
+  }
+  
+
+
+/* Header Styles */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0;
+}
+
+.logo-container {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #005C98; /* Color principal del título */
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Form Container */
+.form-container {
+    background: linear-gradient(to right, #005C98, #505BDA); /* Gradiente aplicado al formulario */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.input-group label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #bbb;
+}
+
+/* Button Styles */
+.btn {
+    padding: 12px;
+    background: #15803d;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.btn:hover {
+    background: #10b981;
+}
+
+/* Register Link */
+.register-link {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px;
+    background: #27272a;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+  
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background: #3f3f46;
+    color: #fff;
+}
+
+
+/* Estilos generales para <nav> */
+.nav {
+    background: linear-gradient(to right, #005C98, #505BDA);
+    opacity: 0.8; /* Opacidad del 90% */
+    padding: 1rem; /* Espaciado interno */
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 25vw; /* Espaciado entre los enlaces */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    width: 98%; /* Ocupa todo el ancho disponible */
+    margin-top: -8px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  
+  /* Estilos generales para los enlaces */
+  .nav-link {
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    font-size: 1.1rem; /* Tamaño de letra */
+    font-weight: 500; /* Negrita moderada */
+    transition: color 0.3s, transform 0.3s; /* Transición para el hover */
+  }
+  
+  /* Efecto hover para los enlaces */
+  .nav-link:hover {
+    color: #FFD700; /* Cambia a un color dorado en hover */
+    transform: scale(1.1); /* Pequeño aumento al pasar el cursor */
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .nav {
+      flex-direction: column; /* Cambia a diseño vertical */
+      align-items: flex-start; /* Alinea los elementos a la izquierda */
+      padding: 1rem 2rem; /* Agrega espacio adicional en los laterales */
+      gap: 0.75rem; /* Espaciado reducido entre enlaces */
+    }
+  
+    .nav-link {
+      font-size: 1rem; /* Reduce ligeramente el tamaño del texto */
+      width: 100%; /* Los enlaces ocupan todo el ancho */
+      text-align: left; /* Alinea los enlaces al lado izquierdo */
+    }
+  }
+  

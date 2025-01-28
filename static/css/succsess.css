@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+    --primary-color: #005C98;
+    --secondary-color: #e8e8e8;
+    --text-dark: #0f172a;
+    --text-light: #94a3b8;
+    --white: #ffffff;
+}
+
+.container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+.line{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    background: var(--primary-color);
+}
+
+ul{
+    z-index: 99;
+    position: absolute;
+    list-style: none;
+    right: 30px;
+}
+
+ul li{
+    display: inline-block;
+    margin: 15px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+}
+
+.mid-text{
+    position: absolute;
+    z-index: 99;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mid-text h2{
+    color: var(--white);
+    font-size: 50px;
+    font-family: 'Poppins' , sans-serif;
+    margin-top: 100px;
+}
+
+.mid-text h3{
+    color: var(--white);
+    font-size: 15px;
+    font-family: 'Poppins' , sans-serif;
+    font-weight: 400;
+}
+
+
+.line-1{
+    z-index: 15;
+    opacity: 0.5;
+}
+
+.line-2{
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.line-3{
+    z-index: 5;
+}
+
+.wave{
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+
+.wave1{
+    -webkit-background-size: 50% 80px;
+    background-size: 50% 80px;
+}
+
+.wave2{
+    -webkit-background-size: 50% 100px;
+    background-size: 50% 80px;
+    animation: animate 12s linear infinite;
+}
+
+.wave3{
+    -webkit-background-size: 50% 80px;
+    background-size: 50% 80px;
+    animation: animate 18s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50%{
+        transform: translateX(-25%) translateZ(0) scaleY(0.5);
+    }
+    100%{
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}
+
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366; 
+    color: #FFFFFF; 
+    font-size: 18px;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    transition: background-color 0.3s;
+    font-family: 'Poppins' , sans-serif;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E; 
+}
+
+.whatsapp-icon {
+    margin-right: 8px; 
+    font-size: 24px; 
+}
+
+
+/* Estilos para pantallas móviles */
+@media (max-width: 600px) {
+    .mid-text h2 {
+        font-size: 24px; /* Ajuste del tamaño del título */
+        margin-bottom: 70px;
+        margin-top: 250px;
+    }
+
+    .mid-text h3 {
+        font-size: 14px; /* Ajuste del tamaño del subtítulo */
+        margin-bottom: 60px;
+    }
+
+    ul li a {
+        font-size: 14px; /* Ajuste del tamaño del texto de los enlaces */
+    }
+
+    .mid-text {
+        top: 30%;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .whatsapp-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .whatsapp-icon {
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+
+

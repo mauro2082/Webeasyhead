@@ -1,0 +1,52 @@
+
+[
+    {
+      "titulo": "Centro de Terapia Física y Rehabilitación YOMELLY",
+      "imagen": "../static/yomelly.png",
+      "servicios": "Fisioterapia Ortopédica y Traumatológica, Deportiva y Terapia Manual.",
+      "clinica": "Centro de Terapia Física y Rehabilitación YOMELLY",
+      "descuento": "30%",
+      "fondoImagen": "../static/centros/4.jpg"
+    },
+    {
+      "titulo": "Atavana - Alta Fisioterapia Humanista",
+      "imagen": "../static/logos/atavana.png",
+      "servicios": "Terapia Manual Ortopédica, Rehabilitación Post Quirúrgica, Rehabilitación Deportiva, Pediátrica e Intrahospitalaria",
+      "clinica": "Atavana   -  Alta Fisioterapia Humanista",
+      "descuento": "20%",
+      "fondoImagen": "../static/centros/2.jpg"
+    },
+    {
+      "titulo": "Fisioterapia en Querétaro - Fisioterapeutas en Querétaro - Clínica Fissiare",
+      "imagen": "../static/logos/fissiare.png",
+      "servicios": "Rehabilitación Física Enfocada en Ortopedia, Adulto Mayor, Deportistas y Drenaje Linfático",
+      "clinica": "Fisioterapia en Querétaro   Clínica Fissiare",
+      "descuento": "30%",
+      "fondoImagen": "../static/centros/3.jpg"
+    },
+    {
+      "titulo": "FISIOTERAPIA | LFT Gabriel González Arroyo | WORK IN-REHABILITACIÓN & FISIOTERAPIA",
+      "imagen": "../static/logos/workin.png",
+      "servicios": "Fisioterapia Ortopédica, Deportiva, Pediátrica y del Adulto Mayor. Experto en Ejercicio Terapéutico.",
+      "clinica": "LFT Gabriel González Arroyo  Work In-Rehabilitación & Fisioterapia",
+      "descuento": "20%",
+      "fondoImagen": "../static/centros/1.jpg"
+    },
+    {
+      "titulo": "Instituto Iberoamericano de Fisioterapia IIF",
+      "imagen": "../static/logos/iif.png",
+      "servicios": "Especialización en Fisioterapia Deportiva, Traumatología y Ortopedia, Fisioterapia Dermatofuncional y Electrotraining",
+      "clinica": "Instituto Iberoamericano de Fisioterapia IIF",
+      "descuento": "30%",
+      "fondoImagen": "../static/centros/5.jpg"
+    },
+    {
+        "titulo": "Instituto Iberoamericano de Fisioterapia IIF",
+        "imagen": "../static/logos/iif.png",
+        "servicios": "Especialización en Fisioterapia Deportiva, Traumatología y Ortopedia, Fisioterapia Dermatofuncional y Electrotraining",
+        "clinica": "Instituto Iberoamericano de Fisioterapia IIF",
+        "descuento": "30%",
+        "fondoImagen": "../static/centros/5.jpg"
+      }
+  ]
+  

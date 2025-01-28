@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio Medico</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../static/logo.ico" type="image/x-icon">
+  </head>
+
+  <body class="body poppins-semibold">
+    <header class="bg_animate">
+      <div class="header_nav">
+        <div class="contenedor">
+          <h1>Portafolio Medico</h1>
+          <nav>
+            <a href="/">Inicio</a>
+            <a href="/#services">Red de servicios</a>
+            <a href="/#contact-us">Contáctanos</a>
+            <a href="/portafolio">Portafolio</a>
+          </nav>
+        </div>
+      </div>
+
+
+
+      <section class="banner contenedor" id="home">
+        <section class="banner_title">
+          <h2>
+            Necesitas un servicio <br />
+            en fisioterapia?
+          </h2>
+          <a href="/afiliate" class="llamanos">Afiliate ya!</a>
+        </section>
+        <div class="banner_img">
+          <img src="../static/logo.png" alt="" />
+        </div>
+      </section>
+    </header>
+
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <defs>
+          <linearGradient id="myGradient" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" style="stop-color: #005c98; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #505bda; stop-opacity: 1" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#myGradient)"
+          fill-opacity="1"
+          d="M0,256L60,256C120,256,240,256,360,229.3C480,203,600,149,720,144C840,139,960,181,1080,192C1200,203,1320,181,1380,170.7L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        />
+      </svg>
+    </div>
+
+    <div class="container2">
+      <h1 class="titlePortafolio">Portafolio Médico</h1>
+      <div class="card-container">
+        {% for doctor in doctors %}
+        <div
+          class="card"
+          style="
+          background-image: url('{{ doctor.fondoImagen }}');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          overflow: hidden;
+        "
+        >
+          <img
+            src="{{ doctor.imagen }}"
+            alt="Imagen de {{ doctor.titulo }}"
+            class="card-img"
+          />
+          <div class="card-info">
+            <div class="slider-container">
+              <div class="slider">
+                <div class="slide">
+                  <h3>CENTRO MÉDICO:</h3>
+                  <p>{{ doctor.clinica }}</p>
+                </div>
+                <div class="slide">
+                  <p>Servicios:</p>
+                  <p class="Servicios">{{ doctor.servicios }}</p>
+                </div>
+                <div class="slide">
+                  <p>Descuento:</p>
+                  <p class="permanent-marker-regular descuento">
+                    {{ doctor.descuento }}
+                  </p>
+                </div>
+              </div>
+              <div class="slider-controls">
+                <button class="prev-btn" aria-label="Previous Slide">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+                <button class="next-btn" aria-label="Next Slide">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".slider-container").forEach((container) => {
+        const slider = container.querySelector(".slider");
+        const slides = container.querySelectorAll(".slide");
+        const prevBtn = container.querySelector(".prev-btn");
+        const nextBtn = container.querySelector(".next-btn");
+        let currentSlide = 0;
+
+        function updateSlider() {
+          slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % slides.length; // Avanza al siguiente slide
+          updateSlider();
+        }
+
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Retrocede al slide anterior
+          updateSlider();
+        }
+
+        // Agrega eventos a los botones
+        prevBtn.addEventListener("click", prevSlide);
+        nextBtn.addEventListener("click", nextSlide);
+
+        // Inicializa el slider
+        updateSlider();
+      });
+    </script>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+      <ul class="social-icon">
+        <li class="icon-elem">
+          <a
+            href="https://www.tiktok.com/@easyhealth.mex"
+            class="icon"
+            target="_blank"
+          >
+            <ion-icon name="logo-tiktok"></ion-icon>
+          </a>
+        </li>
+
+        <li class="icon-elem">
+          <a
+            href="https://www.instagram.com/easyhealth.mex/"
+            class="icon"
+            target="_blank"
+          >
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+
+        <li class="icon-elem">
+          <a
+            href="https://www.facebook.com/tu_usuario"
+            class="icon"
+            target="_blank"
+          >
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+
+        <li class="icon-elem">
+          <a href="https://wa.me/524447138989" class="icon" target="_blank">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="menu">
+        <li class="menu-elem">
+          <a href="#home" class="menu-icon">Inicio</a>
+        </li>
+
+        <li class="menu-elem">
+          <a href="#services" class="menu-icon">Red de servicios</a>
+        </li>
+
+        <li class="menu-elem">
+          <a href="#testimonials" class="menu-icon">Testimonios</a>
+        </li>
+
+        <li class="menu-elem">
+          <a href="/afiliate" class="menu-icon">Afiliate</a>
+        </li>
+      </ul>
+
+      <p class="text">@2024 | Todos lo derechos reservados</p>
+    </footer>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Boton de WhatsApp -->
+
+    <a
+      href="https://wa.me/573105343807"
+      class="whatsapp-button"
+      target="_blank"
+      aria-label="Chat en WhatsApp"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp Icon"
+      />
+    </a>
+  </body>
+</html>
