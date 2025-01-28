@@ -35,21 +35,21 @@ body{
 
 /* estidos del header y modo movil */
 /* Estilos base */
-.header_nav{
+.header_nav {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.header_nav .contenedor{
+.header_nav .contenedor {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 0;
 }
 
-.header_nav h1{
+.header_nav h1 {
   color: #fff;
   font-size: 40px;
 }
@@ -59,7 +59,7 @@ body{
   align-items: center;
 }
 
-.header_nav nav a{
+.header_nav nav a {
   color: #fff;
   text-decoration: none;
   margin-right: 30px;
@@ -82,46 +82,95 @@ body{
   width: 100%; 
 }
 
+.header_nav .menu-icon {
+  display: none !important; /* Forzar ocultar el ícono */
+}
+
+
 /* Estilos para pantallas móviles */
 @media (max-width: 768px) {
-    .header_nav .contenedor {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .header_nav {
+    position: relative; /* Contenedor relativo para elementos posicionados */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .header_nav h1 {
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
+  .header_nav .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
 
-    .menu-icon {
-        display: block;
-        font-size: 30px;
-        color: #fff;
-        cursor: pointer;
-    }
+  .header_nav h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
 
-    .menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
+  .header_nav .menu-icon {
+    display: block !important;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute; /* Fija el ícono dentro del contenedor */
+    top: 10px; /* Ajusta la posición desde la parte superior */
+    right: 20px; /* Ajusta la posición desde la derecha */
+    z-index: 100; /* Asegura que el ícono esté siempre encima */
+  }
 
-    .menu.active {
-        display: flex;
-    }
+  .menu {
+    display: none ;
+    flex-direction: column;
+    width: 100%;
+    position: absolute; /* Fija el menú desplegable */
+    top: 0px; /* Posición debajo del header */
+    left: 190px;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+    border-radius: 8px; /* Bordes redondeados */
+    z-index: 99; /* Debajo del ícono */
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    opacity: 0; /* Ocultar el menú cuando no está activo */
+    visibility: hidden; /* No ocupa espacio cuando no está activo */
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
+  }
 
-    .header_nav nav a {
-        display: none; /* Ocultar enlaces de navegación en pantallas pequeñas */
-        margin-right: 0;
-        margin-bottom: 10px;
-        font-size: 18px;
-    }
+  .menu.active {
+    display: flex;
+    opacity: 1; /* Menú completamente visible */
+    visibility: visible; /* Asegura que se muestre */
+  }
 
-    .menu.active a {
-        display: block; /* Mostrar enlaces de navegación cuando el menú está activo */
-    }
+  .header_nav nav a {
+    display: none; /* Ocultar enlaces de navegación por defecto */
+    margin-right: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .menu.active a {
+    display: block ;
+    text-align: center; /* Centrar el texto */
+    padding: 10px 0; /* Espaciado */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    color: #fff; /* Texto blanco para contraste */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Separación entre elementos */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    transition: all 0.3s ease; /* Transición suave */
+  }
+  
+  .menu.active a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro al pasar el ratón */
+    color: #ff6347; /* Cambia el color del texto */
+    transform: scale(1.05); /* Efecto de zoom */
+  }
+  
 }
+
+
 
 
 
