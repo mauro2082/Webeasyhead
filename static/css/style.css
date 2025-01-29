@@ -33,8 +33,7 @@ body{
 }
 
 
-/* estidos del header y modo movil */
-/* Estilos base */
+/* Estilos generales del header */
 .header_nav {
   width: 100%;
   position: absolute;
@@ -79,105 +78,86 @@ body{
 }
 
 .header_nav nav a:hover::after {
-  width: 100%; 
+  width: 100%;
 }
-
-.header_nav .menu-icon {
-  display: none !important; /* Forzar ocultar el ícono */
-}
-
 
 /* Estilos para pantallas móviles */
 @media (max-width: 768px) {
   .header_nav {
-    position: relative; /* Contenedor relativo para elementos posicionados */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
   }
 
   .header_nav .contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
   }
 
   .header_nav h1 {
-    font-size: 30px;
-    margin-bottom: 20px;
+      font-size: 30px;
+      margin-bottom: 20px;
+      margin-left: 20px; /* Ajustado para mejor visualización */
   }
 
   .header_nav .menu-icon {
-    display: block !important;
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
-    position: absolute; /* Fija el ícono dentro del contenedor */
-    top: 10px; /* Ajusta la posición desde la parte superior */
-    right: 20px; /* Ajusta la posición desde la derecha */
-    z-index: 100; /* Asegura que el ícono esté siempre encima */
+      display: block;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+      position: absolute;
+      top: 20px; /* Ajustado para mejor visualización */
+      right: 20px;
+      z-index: 100;
   }
 
   .menu {
-    display: none ;
-    flex-direction: column;
-    width: 100%;
-    position: absolute; /* Fija el menú desplegable */
-    top: 0px; /* Posición debajo del header */
-    left: 190px;
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
-    border-radius: 8px; /* Bordes redondeados */
-    z-index: 99; /* Debajo del ícono */
-    padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
-    opacity: 0; /* Ocultar el menú cuando no está activo */
-    visibility: hidden; /* No ocupa espacio cuando no está activo */
-    transition: opacity 0.3s ease, visibility 0.3s ease; 
+      display: none;
+      flex-direction: column;
+      width: 440px; /* Ancho del menú */
+      height: 900px; /* Altura del menú */
+      position: fixed; /* Posición fija para cubrir la pantalla */
+      top: 0;
+      left: -100%; /* Oculto a la izquierda */
+      background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco */
+      height: 100%; /* Cubrir toda la pantalla */
+      z-index: 99; /* Por encima del contenido principal */
+      padding: 30px;
+      transition: transform 0.5s ease; /* Transición para el deslizamiento */
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4); /* Sombra a la derecha */
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+  }
+
+  .nav {
+
+    height: 800px;
   }
 
   .menu.active {
-    display: flex;
-    opacity: 1; /* Menú completamente visible */
-    visibility: visible; /* Asegura que se muestre */
+      display: flex;
+      transform: translateX(80%); /* Deslizar hacia la derecha */
   }
 
   .header_nav nav a {
-    display: none; /* Ocultar enlaces de navegación por defecto */
-    margin-right: 0;
-    margin-bottom: 10px;
-    font-size: 18px;
+      display: block;
+      margin-right: 0;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333; /* Color de texto oscuro */
+      padding: 10px;
+      text-decoration: none;
   }
-
-  .menu.active a {
-    display: block ;
-    text-align: center; /* Centrar el texto */
-    padding: 10px 0; /* Espaciado */
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
-    color: #fff; /* Texto blanco para contraste */
-    border-radius: 8px; /* Bordes redondeados */
-    margin-bottom: 10px; /* Separación entre elementos */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
-    transition: all 0.3s ease; /* Transición suave */
-  }
-  
-  .menu.active a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro al pasar el ratón */
-    color: #ff6347; /* Cambia el color del texto */
-    transform: scale(1.05); /* Efecto de zoom */
-  }
-  
 }
-
-
-
-
-
 .banner{
   display: flex;
   justify-content: space-between;
 }
+
 
 .banner_title h2{
   color: #fff;
@@ -186,6 +166,8 @@ body{
   margin-top: 300px;
   margin-bottom: 50px;
 }
+
+
 
 .banner_title .llamanos{
   color: #fff;
@@ -204,6 +186,8 @@ body{
 .banner_img{
   animation: movimiento 2.5s linear infinite;
 }
+
+
 
 .banner_img img{
   width: 400px;
@@ -349,6 +333,9 @@ img {
     flex-direction: flex; 
     align-items: auto; 
   }
+  .banner_title {
+    margin-top: -380px;
+  }
 
   .banner_title h2 {
     font-size: 24px; 
@@ -362,7 +349,7 @@ img {
 
   .banner_img img {
     width: 80%; 
-    margin-top: 300px;
+    margin-top: 1px;
     margin-left: 50px; 
   }
 
