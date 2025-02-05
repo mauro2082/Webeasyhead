@@ -19,27 +19,41 @@ body{
 }
 
 .contenedor{
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
   margin: auto;
+  padding: 8%;
+  
 }
 
 .bg_animate{
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(to right, #005C98, #505BDA);
+  height: 95vh;
+  background-image: url("../fondos/fondo2.png");
+  background-size: cover; /* La imagen cubrirá todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4); /* Sombra solo en la parte inferior */
 }
+
+
 
 
 /* Estilos generales del header */
 .header_nav {
   width: 100%;
+  height: 80px;
   position: absolute;
   top: 0;
   left: 0;
+  background: #fff ;
+ 
+
 }
+
 
 .header_nav .contenedor {
   display: flex;
@@ -49,19 +63,24 @@ body{
 }
 
 .header_nav h1 {
-  color: #fff;
-  font-size: 40px;
+  color: #005C98;
+  font-size: clamp(1.5rem, 1.7vw, 1.8rem);
+  padding-left: 8%;
 }
 
 .header_nav nav {
   display: flex;
   align-items: center;
+
 }
 
 .header_nav nav a {
-  color: #fff;
+  color: #005C98;
   text-decoration: none;
-  margin-right: 30px;
+  margin-right: clamp(10px, 20px, 30px);
+  font-size: clamp(0.8vw, 1vw, 1.2vw);
+
+
   position: relative;
   display: inline-block;
 }
@@ -98,7 +117,7 @@ body{
   }
 
   .header_nav h1 {
-      font-size: 30px;
+      font-size: 4vw;
       margin-bottom: 20px;
       margin-left: 20px; /* Ajustado para mejor visualización */
   }
@@ -106,40 +125,52 @@ body{
   .header_nav .menu-icon {
       display: block;
       font-size: 30px;
-      color: #fff;
+      text-shadow: 2px 2px 5px white;
+      color: #18181B;
       cursor: pointer;
-      position: absolute;
+      position: fixed;
       top: 20px; /* Ajustado para mejor visualización */
       right: 20px;
-      z-index: 100;
+      z-index: 99;
   }
+  
+  .menu-icon.active {
+    color: red; /* Cambia el color a rojo cuando el menú está activo */
+}
 
   .menu {
-      display: none;
-      flex-direction: column;
-      width: 440px; /* Ancho del menú */
-      height: 900px; /* Altura del menú */
-      position: fixed; /* Posición fija para cubrir la pantalla */
-      top: 0;
-      left: -100%; /* Oculto a la izquierda */
-      background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco */
-      height: 100%; /* Cubrir toda la pantalla */
-      z-index: 99; /* Por encima del contenido principal */
-      padding: 30px;
-      transition: transform 0.5s ease; /* Transición para el deslizamiento */
-      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4); /* Sombra a la derecha */
-      border-top-right-radius: 50%;
-      border-bottom-right-radius: 50%;
-  }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80vw; /* Ajusta el ancho del menú */
+    height: 100%;
+    background-color: rgba(64, 64, 64, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Estado inicial: menú oculto fuera de la pantalla */
+    transform: translateX(-100%);
+    opacity: 0;
+
+    /* Transiciones suaves */
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Cuando el menú está activo */
+.menu.active {
+    transform: translateX(0); /* Se mueve hacia la derecha */
+    opacity: 1;
+    z-index: 99;
+
+}
+
+
 
   .nav {
-
     height: 800px;
-  }
-
-  .menu.active {
-      display: flex;
-      transform: translateX(80%); /* Deslizar hacia la derecha */
   }
 
   .header_nav nav a {
@@ -148,7 +179,7 @@ body{
       margin-bottom: 10px;
       font-size: 18px;
       font-weight: bold;
-      color: #333; /* Color de texto oscuro */
+      color: #fff; /* Color de texto oscuro */
       padding: 10px;
       text-decoration: none;
   }
@@ -156,15 +187,17 @@ body{
 .banner{
   display: flex;
   justify-content: space-between;
+  height: 100%;
 }
 
 
 .banner_title h2{
   color: #fff;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 600;
-  margin-top: 300px;
+  margin-top: 250px;
   margin-bottom: 50px;
+  text-shadow: 2px 2px 5px black;
 }
 
 
@@ -189,19 +222,21 @@ body{
 
 
 
-.banner_img img{
-  width: 400px;
-  display: block;
-  mix-blend-mode: multiply;
-  margin-top: 200px;
-}
 
-img {
+
+.banner_img img {
+ 
   height: auto;
-  width: auto;
-  max-height: 100%;
-  max-width: 100%;
+
+  width: clamp(20vw, 25vw, 30vw);
+  max-height: auto;
+  max-width: 35vw;
+  min-width: 20vw;
   border-radius: 0px;
+  position: absolute;
+  top: clamp(250px, 150px, 100px);
+  left: 61%;
+
 }
 
 .burbuja{
@@ -312,51 +347,7 @@ img {
   }
 }
 
-@media (max-width: 768px) {
-  .header_nav .contenedor {
-    flex-direction: column; 
-    align-items: flex-start; 
-    padding: 20px 0; 
-  }
 
-  .header_nav h1 {
-    font-size: 24px; 
-    margin-bottom: 10px; 
-    margin-top: 30px;
-  }
-
-  .header_nav nav a {
-    margin-right: 30px; 
-  }
-
-  .banner {
-    flex-direction: flex; 
-    align-items: auto; 
-  }
-  .banner_title {
-    margin-top: -380px;
-  }
-
-  .banner_title h2 {
-    font-size: 24px; 
-    margin-top: 300px; 
-  }
-
-  .banner_title .llamanos {
-    font-size: 16px; 
-    padding: 15px; 
-  }
-
-  .banner_img img {
-    width: 80%; 
-    margin-top: 1px;
-    margin-left: 50px; 
-  }
-
-  .burbuja {
-    bottom: -50px; 
-  }
-}
 
 
 /* Experiencias */
@@ -538,6 +529,7 @@ img {
   padding: 3% 8%;
   border: 0.2px solid rgba(114, 226, 174, 0,2);
   border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: 0.6s;
   display: flex;
   align-items: center;
@@ -893,7 +885,7 @@ label{
   transform: translateY(-10px);
 }
 
-.menu{
+.mmenu{
   display: flex;
   justify-content: center;
   position: relative;

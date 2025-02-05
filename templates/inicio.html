@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="icon" href="../static/logo." type="image/x-icon">
+    <link rel="icon" href="../static/logo.ico" type="image/x-icon" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../static/css/style.css" />
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet" />
-    <title>Easy Health | Portafolio De Servicios</title>
+    <title>Easy Health | Inicio</title>
    
 </head>
 <body>
@@ -20,7 +20,8 @@
     <header class = "bg_animate">
         <div class="header_nav">
             <div class="contenedor">
-                <h1>Portafolio de Servicios</h1>
+               
+                <h1>Fisioterapia Accesible para Todos</h1>
                 <nav>
                     <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
                     <div class="menu">
@@ -38,23 +39,19 @@
 
 
 
-        <section class="banner contenedor bc" id="home">
+        <section class="banner contenedor" id="home">
             <section class="banner_title">
                 <h2>Necesitas un servicio <br> en fisioterapia?</h2>
                 <a href="/afiliate" class="llamanos">Afiliate ya!</a>
             </section>
             <div class="banner_img">
-                <img src="../static/logo.png" alt="">
+                
+                <img src="../static/logo2.png" alt="">
             </div> 
         </section>
     </header>
                    
 
-    <div class="custom-shape-divider-bottom-1727833950">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-        </svg>
-    </div>
 
 
         <!-- Sobre nosotros -->
@@ -248,7 +245,7 @@
 
         </ul>
 
-        <ul class="menu">
+        <ul class="mmenu">
             <li class="menu-elem">
                 <a href="#home" class="menu-icon">Inicio</a>
             </li>
@@ -284,10 +281,31 @@
 
     <script>
         function toggleMenu() {
-            document.querySelector('.menu').classList.toggle('active');
-
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon'); // Selecciona el icono del menú
+    
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                menuIcon.classList.remove('active'); // Quita la clase al botón
+            } else {
+                menu.classList.add('active');
+                menuIcon.classList.add('active'); // Agrega la clase al botón
+            }
         }
+    
+        // Cierra el menú rápidamente si se hace clic fuera de él
+        document.addEventListener('click', function (event) {
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon');
+    
+            if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                menu.classList.remove('active');
+                menuIcon.classList.remove('active');
+            }
+        });
     </script>
+    
+    
 
 </body>
 </html>

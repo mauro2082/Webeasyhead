@@ -138,13 +138,25 @@ def feedback():
     # Si es GET, simplemente muestra la página con los comentarios
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute('SELECT name, email, text FROM feedback')
+    cursor.execute('SELECT id, name, email, text FROM feedback')
     feedbacks = cursor.fetchall()
     cursor.close()
     conn.close()
     return render_template('/feedback.html', feedbacks=feedbacks)
 
 
+# ruta eliminar comentario 
+
+@app.route('/feedback/delete/<int:feedback_id>', methods=['POST'])
+def delete_feedback(feedback_id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM feedback WHERE id = %s', (feedback_id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    return redirect(url_for('feedback'))
 
 # Redirigir a la página de inicio si acceden a la raíz '/'
 @app.route('/')
@@ -250,13 +262,16 @@ def success():
 @app.route('/portafolio')
 def portfolio():
     try:
-        # Cargar los datos del JSON
-        with open('data.json', 'r', encoding='utf-8') as f:
+        # Obtener la ruta absoluta del archivo
+        base_dir = os.path.abspath(os.path.dirname(__file__))
+        json_path = os.path.join(base_dir, 'data.json')
+
+        # Leer el archivo JSON
+        with open(json_path, 'r', encoding='utf-8') as f:
             doctors = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError) as e:
         doctors = []  # En caso de error, usa una lista vacía
 
-    # Pasar los datos al template
     return render_template('portafolio.html', doctors=doctors)
 
 

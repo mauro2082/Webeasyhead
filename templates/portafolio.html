@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio Medico</title>
+    <title>Easy Health | Portafolio</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css') }}"
@@ -23,24 +23,26 @@
       href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="../static/logo.ico" type="image/x-icon">
+    <link rel="icon" href="../static/logo.ico" type="image/x-icon" />
   </head>
 
-  <body class="body poppins-semibold">
+  <body class="">
     <header class="bg_animate">
       <div class="header_nav">
         <div class="contenedor">
-          <h1>Portafolio Medico</h1>
+          <h1>Fisioterapia Accesible para Todos</h1>
           <nav>
-            <a href="/">Inicio</a>
-            <a href="/#services">Red de servicios</a>
-            <a href="/#contact-us">Contáctanos</a>
-            <a href="/portafolio">Portafolio</a>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <div class="menu">
+              <a href="/">Inicio</a>
+              <a href="#services">Red de servicios</a>
+              <a href="#contact-us">Contáctanos</a>
+              <a href="/portafolio">Portafolio</a>
+              <a href="/iniciarSesion">Iniciar Sesión</a>
+            </div>
           </nav>
         </div>
       </div>
-
-
 
       <section class="banner contenedor" id="home">
         <section class="banner_title">
@@ -55,22 +57,6 @@
         </div>
       </section>
     </header>
-
-    <div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <defs>
-          <linearGradient id="myGradient" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" style="stop-color: #005c98; stop-opacity: 1" />
-            <stop offset="100%" style="stop-color: #505bda; stop-opacity: 1" />
-          </linearGradient>
-        </defs>
-        <path
-          fill="url(#myGradient)"
-          fill-opacity="1"
-          d="M0,256L60,256C120,256,240,256,360,229.3C480,203,600,149,720,144C840,139,960,181,1080,192C1200,203,1320,181,1380,170.7L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
-        />
-      </svg>
-    </div>
 
     <div class="container2">
       <h1 class="titlePortafolio">Portafolio Médico</h1>
@@ -203,21 +189,21 @@
         </li>
       </ul>
 
-      <ul class="menu">
+      <ul class="mmenu">
         <li class="menu-elem">
-          <a href="#home" class="menu-icon">Inicio</a>
+          <a href="#home" class="mmenu-icon">Inicio</a>
         </li>
 
         <li class="menu-elem">
-          <a href="#services" class="menu-icon">Red de servicios</a>
+          <a href="#services" class="mmenu-icon">Red de servicios</a>
         </li>
 
         <li class="menu-elem">
-          <a href="#testimonials" class="menu-icon">Testimonios</a>
+          <a href="#testimonials" class="mmenu-icon">Testimonios</a>
         </li>
 
         <li class="menu-elem">
-          <a href="/afiliate" class="menu-icon">Afiliate</a>
+          <a href="/afiliate" class="mmenu-icon">Afiliate</a>
         </li>
       </ul>
 
@@ -246,5 +232,31 @@
         alt="WhatsApp Icon"
       />
     </a>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        const menuIcon = document.querySelector(".menu-icon"); // Selecciona el icono del menú
+
+        if (menu.classList.contains("active")) {
+          menu.classList.remove("active");
+          menuIcon.classList.remove("active"); // Quita la clase al botón
+        } else {
+          menu.classList.add("active");
+          menuIcon.classList.add("active"); // Agrega la clase al botón
+        }
+      }
+
+      // Cierra el menú rápidamente si se hace clic fuera de él
+      document.addEventListener("click", function (event) {
+        const menu = document.querySelector(".menu");
+        const menuIcon = document.querySelector(".menu-icon");
+
+        if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+          menu.classList.remove("active");
+          menuIcon.classList.remove("active");
+        }
+      });
+    </script>
   </body>
 </html>

@@ -71,7 +71,7 @@ body{
 
 /* Form Container */
 .form-container {
-    background: linear-gradient(to right, #005C98, #505BDA); /* Gradiente aplicado al formulario */
+    background: rgb(0, 92, 152); /* Gradiente aplicado al formulario */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
