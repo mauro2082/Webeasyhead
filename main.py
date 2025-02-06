@@ -196,9 +196,9 @@ def logout():
 
 
 # Página principal
-@app.route('/inicio')
+@app.route('/')
 def index():
-    return render_template('inicio.html')
+    return render_template('index.html')
 
 # Crear sesión de pago con PayPal
 @app.route('/create-checkout-session', methods=['POST'])
