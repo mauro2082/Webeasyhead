@@ -1,5 +1,6 @@
+
 from flask import Flask, render_template, request, redirect, url_for, abort, session
-import sqlite3
+
 import paypalrestsdk
 from functools import wraps
 import os
@@ -7,6 +8,7 @@ import json
 from dotenv import load_dotenv
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash  # Para hash de contraseñas
+
 
 
 # Cargar las variables de entorno
