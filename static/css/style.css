@@ -101,7 +101,7 @@ body{
 }
 
 /* Estilos para pantallas móviles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .header_nav {
       position: relative;
       display: flex;
@@ -193,7 +193,7 @@ body{
 
 .banner_title h2{
   color: #fff;
-  font-size: 40px;
+  font-size: clamp(23px, 35px, 40px);
   font-weight: 600;
   margin-top: 250px;
   margin-bottom: 50px;
@@ -227,7 +227,6 @@ body{
 .banner_img img {
  
   height: auto;
-
   width: clamp(20vw, 25vw, 30vw);
   max-height: auto;
   max-width: 35vw;

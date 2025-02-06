@@ -157,7 +157,7 @@ h1 {
 
 .card-info p {
   display: block;
-  font-size: clamp(20px, 2.5vw, 40px);
+  font-size: clamp(20px, 2vw, 30px);
   color: #fff;
   text-shadow: 2px 2px 5px black;
   margin: 20px;
@@ -450,13 +450,26 @@ h1 {
   padding: 5px 10px;
   cursor: pointer;
   color: #fff;
-  font-size: 24px;
+  font-size: 34px;
+  position: absolute;
+  top: 75%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
-.cart:hover .prev-btn .next-btn {
-  background-color: transparent;
-  color: #005c98;
+.prev-btn {
+  left: 10px;
 }
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  color: #003366; /* Color más oscuro para el hover */
+}
+
 
 
 
@@ -846,8 +859,23 @@ h1 {
   width: 100%;
 }
 
+
+.menu-icon{
+  color: white;
+  font-size: 20px;
+  display: inline-block;
+  text-decoration: none;
+  margin: 5px 10px;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.menu-icon:hover{
+  opacity: 1;
+}
+
 /* Estilos para pantallas móviles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .header_nav {
     position: relative;
     display: flex;
@@ -870,6 +898,7 @@ h1 {
 
 
   .header_nav .menu-icon {
+    
     display: block;
     font-size: 30px;
     text-shadow: 2px 2px 5px white;

@@ -9,10 +9,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css') }}"
     />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
+   
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,6 +21,10 @@
       rel="stylesheet"
     />
     <link rel="icon" href="../static/logo.ico" type="image/x-icon" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="">
@@ -53,7 +54,7 @@
           <a href="/afiliate" class="llamanos">Afiliate ya!</a>
         </section>
         <div class="banner_img">
-          <img src="../static/logo.png" alt="" />
+          <img src="../static/logo2.png" alt="" />
         </div>
       </section>
     </header>
@@ -116,37 +117,6 @@
         {% endfor %}
       </div>
     </div>
-
-    <script>
-      document.querySelectorAll(".slider-container").forEach((container) => {
-        const slider = container.querySelector(".slider");
-        const slides = container.querySelectorAll(".slide");
-        const prevBtn = container.querySelector(".prev-btn");
-        const nextBtn = container.querySelector(".next-btn");
-        let currentSlide = 0;
-
-        function updateSlider() {
-          slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        function nextSlide() {
-          currentSlide = (currentSlide + 1) % slides.length; // Avanza al siguiente slide
-          updateSlider();
-        }
-
-        function prevSlide() {
-          currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Retrocede al slide anterior
-          updateSlider();
-        }
-
-        // Agrega eventos a los botones
-        prevBtn.addEventListener("click", prevSlide);
-        nextBtn.addEventListener("click", nextSlide);
-
-        // Inicializa el slider
-        updateSlider();
-      });
-    </script>
 
     <!-- Footer -->
 
@@ -234,28 +204,69 @@
     </a>
 
     <script>
-      function toggleMenu() {
-        const menu = document.querySelector(".menu");
-        const menuIcon = document.querySelector(".menu-icon"); // Selecciona el icono del menú
+      document.addEventListener("DOMContentLoaded", function () {
+        // Función botones slider
+        document.querySelectorAll(".slider-container").forEach((container) => {
+          const slider = container.querySelector(".slider");
+          const slides = container.querySelectorAll(".slide");
+          const prevBtn = container.querySelector(".prev-btn");
+          const nextBtn = container.querySelector(".next-btn");
+          let currentSlide = 0;
 
-        if (menu.classList.contains("active")) {
-          menu.classList.remove("active");
-          menuIcon.classList.remove("active"); // Quita la clase al botón
-        } else {
-          menu.classList.add("active");
-          menuIcon.classList.add("active"); // Agrega la clase al botón
+          if (!slider || slides.length === 0 || !prevBtn || !nextBtn) return; // Previene errores si falta algún elemento
+
+          function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+          }
+
+          function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+          }
+
+          function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+          }
+
+          prevBtn.addEventListener("click", nextSlide);
+          nextBtn.addEventListener("click", prevSlide);
+
+          updateSlider();
+        });
+
+        // Función para abrir y cerrar el menú
+        function toggleMenu() {
+          const menu = document.querySelector(".menu");
+          const menuIcon = document.querySelector(".menu-icon");
+
+          if (!menu || !menuIcon) return; // Previene errores si faltan elementos
+
+          menu.classList.toggle("active");
+          menuIcon.classList.toggle("active");
         }
-      }
 
-      // Cierra el menú rápidamente si se hace clic fuera de él
-      document.addEventListener("click", function (event) {
-        const menu = document.querySelector(".menu");
+        // Evento para el botón del menú
         const menuIcon = document.querySelector(".menu-icon");
-
-        if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
-          menu.classList.remove("active");
-          menuIcon.classList.remove("active");
+        if (menuIcon) {
+          menuIcon.addEventListener("click", toggleMenu);
         }
+
+        // Cierra el menú si se hace clic fuera de él
+        document.addEventListener("click", function (event) {
+          const menu = document.querySelector(".menu");
+          const menuIcon = document.querySelector(".menu-icon");
+
+          if (
+            menu &&
+            menuIcon &&
+            !menu.contains(event.target) &&
+            !menuIcon.contains(event.target)
+          ) {
+            menu.classList.remove("active");
+            menuIcon.classList.remove("active");
+          }
+        });
       });
     </script>
   </body>
